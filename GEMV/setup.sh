@@ -39,10 +39,12 @@ wget -O $gemvFolder.zip https://vehicle2x.net/download/gemv2-package-v1-2/?wpdmd
 unzip $gemvFolder.zip
 rm $gemvFolder.zip
 
-# config 파일 복사
-cp config/Busan.sumo.cfg $gemvFolder/Busan.sumo.cfg
-cp config/SanFrancisco.sumo.cfg $gemvFolder/SanFrancisco.sumo.cfg
+# sumo 파일 복사
+cp -r SUMO/SanFrancisco $gemvFolder/inputPolygon
 
+# config 파일 복사
+# cp SUMO/Busan/Busan.sumocfg $gemvFolder/Busan.sumocfg
+# cp SUMO/SanFrancisco/SanFrancisco.sumocfg $gemvFolder/SanFrancisco.sumocfg
 
 echo -e "\033[32;1mAll configurations are complete.\033[m"
 echo -e "\033[33mMatlab must be downloaded directly via https://kr.mathworks.com/downloads/.\033[0m"

@@ -20,8 +20,9 @@ bash ./sumo.sh
 %   5 - Bologna (scenario with both V2V and V2I)
 %   6 - Busan % --- 추가
 %   7 - SanFranciso % --- 추가
-scenario = 6; % --- 수정
+scenario = 7; % --- 수정
 ```
+
 ```matlab
 switch scenario
     ...
@@ -35,7 +36,21 @@ switch scenario
     case 7
         vehiclesFile = 'inputMobilitySUMO/SanFrancisco-mobility-trace.xml';
         bBoxVehicles = [-122.4115,37.7814,-122.3899,37.7965];
-        staticFile = 'inputPolygon/SanFrancisco.osm';
+        staticFile = 'inputPolygon/SanFrancisco/SanFrancisco_bbox.osm';
+```
+
+```matlab
+%% Google Earth Visualization 
+% NB: in case of large networks, generating the visualization can take very
+% long time. Use accordingly.
+GEVisualize = 1;
+    % IF GEVisualize = 1, then parameters below indicate what is plotted.
+    % Plot static objects and vehicle polygons
+    plotPoly = 1; % --- 수정
+    % Plot the received power for each of the communications pairs
+    plotRxPwr = 1;
+    % Plot the number of neighbors per vehicle
+    plotNeighbors = 1;
 ```
 
 ## GEMV 시뮬레이션 실행

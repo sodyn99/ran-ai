@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-04-15 19:30:42 by Eclipse SUMO sumo Version 1.19.0
+-->
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="SanFrancisco.net.xml.gz"/>
+        <route-files value="SanFrancisco.passenger.rou.xml"/>
+        <additional-files value="SanFrancisco.poly.xml.gz"/>
+    </input>
+
+    <output>
+        <fcd-output value="../../inputMobilitySUMO/SanFrancisco-mobility-trace.xml"/>
+        <fcd-output.geo value="true"/>
+    </output>
+
+    <time>
+        <begin value="0.00"/>
+        <end value="100.00"/>
+        <step-length value="1"/>
+    </time>
+
+    <processing>
+        <ignore-route-errors value="true"/>
+        <collision.action value="none"/>
+        <collision.mingap-factor value="0"/>
+    </processing>
+
+    <routing>
+        <device.rerouting.adaptation-steps value="18"/>
+        <device.rerouting.adaptation-interval value="10"/>
+    </routing>
+
+    <report>
+        <verbose value="true"/>
+        <duration-log.statistics value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+    <gui_only>
+        <gui-settings-file value="SanFrancisco.view.xml"/>
+    </gui_only>
+
+</configuration>

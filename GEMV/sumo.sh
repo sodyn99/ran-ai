@@ -2,7 +2,7 @@
 
 # 변수
 gemvFolder=GEMV2PackageV1.2 # GEMV 폴더 명
-numOfVehicles=10 # 자동차 개수
+numOfVehicles=10
 
 echo -e "\n\033[32;1mCity List: \033[m\n1. Busan\n2. SanFrancisco"
 echo -e "\n\033[32;1mEnter the number(default SanFrancisco): \033[m"
@@ -29,14 +29,14 @@ sudo apt-get -y update
 sudo apt-get install -y sumo sumo-tools sumo-doc
 
 # Get osm file from OpenStreetMap
-echo -e "\n\033[32;1m***** Getting osm file\033[m from OpenStreetMap \033[32;1m*****\033[m"
-wget -O $gemvFolder/inputPolygon/$cityName.osm "https://api.openstreetmap.org/api/0.6/map?bbox=$cityCoordinate"
+# echo -e "\n\033[32;1m***** Getting osm file\033[m from OpenStreetMap \033[32;1m*****\033[m"
+# wget -O $gemvFolder/inputPolygon/$cityName.osm "https://api.openstreetmap.org/api/0.6/map?bbox=$cityCoordinate"
 
 # Convert osm to net
-echo -e "\n\033[32;1m***** Converting osm file to net file *****\033[m"
-netconvert --osm $gemvFolder/inputPolygon/$cityName.osm -o $gemvFolder/inputPolygon/$cityName.net.xml --geometry.remove --ramps.guess --junctions.join --tls.guess-signals --tls.discard-simple --tls.join --remove-edges.by-type railway.subway
+# echo -e "\n\033[32;1m***** Converting osm file to net file *****\033[m"
+# netconvert --osm $gemvFolder/inputPolygon/$cityName.osm -o $gemvFolder/inputPolygon/$cityName.net.xml --geometry.remove --ramps.guess --junctions.join --tls.guess-signals --tls.discard-simple --tls.join --remove-edges.by-type railway.subway
 
-# Setup numOfVehicles vehicles' route
+# Setup vehicles' route
 echo "***** Finding: randomTrips.py *****"
 randomTripsPATH=$(sudo find / -name randomTrips.py 2>/dev/null)
 echo "randomTripsPATH: $randomTripsPATH"
@@ -44,18 +44,17 @@ if [ -z "$randomTripsPATH" ]; then
     echo -e "\033[31mERROR\033[0m: Cannot find randomTrips.py (0)"
     exit 0
 else
-    echo -e "\n\033[32;1m***** Setting\033[m $numOfVehicles vehicles \033[32;1m*****\033[m"
-    $randomTripsPATH -n $gemvFolder/inputPolygon/$cityName.net.xml -e $numOfVehicles -o $gemvFolder/inputPolygon/$cityName.trips.xml
+    echo -e "\n\033[32;1m***** Setting\033[m $numOfVehicles vehicles \033[32;1m*****\033[m" # --fringe-factor 5 --insertion-density 12
+    $randomTripsPATH -n $gemvFolder/inputPolygon/$cityName/$cityName.net.xml.gz -o $gemvFolder/inputPolygon/$cityName/$cityName.passenger.trips.xml -r $gemvFolder/inputPolygon/$cityName/$cityName.passenger.rou.xml -b 0 -e $numOfVehicles --trip-attributes "departLane=\"best\"" --fringe-start-attributes "departSpeed=\"max\"" --validate --remove-loops --via-edge-types highway.motorway,highway.motorway_link,highway.trunk_link,highway.primary_link,highway.secondary_link,highway.tertiary_link --vehicle-class passenger --vclass passenger --prefix veh --min-distance 300 --min-distance.fringe 10 --allow-fringe.min-length 1000 --lanes
 fi
 
 # Generate route file
-echo -e "\n\033[32;1m***** Generating\033[m route file \033[32;1m*****\033[m"
-duarouter -n $gemvFolder/inputPolygon/$cityName.net.xml --route-files $gemvFolder/inputPolygon/$cityName.trips.xml -o $gemvFolder/inputPolygon/$cityName.rou.xml --ignore-errors
+# echo -e "\n\033[32;1m***** Generating\033[m route file \033[32;1m*****\033[m"
+# duarouter -n $gemvFolder/inputPolygon/$cityName.net.xml --route-files $gemvFolder/inputPolygon/$cityName.trips.xml -o $gemvFolder/inputPolygon/$cityName.rou.xml --ignore-errors
 
 # simulate
 echo -e "\n\033[32;1m***** Simulating *****\033[m"
-sumo -c $gemvFolder/$cityName.sumo.cfg
-#gksudo sumo-gui -c $cityName.sumo.cfg --fcd-output $cityName-SUMOMobility.xml --fcd-output.geo true
+sumo -c $gemvFolder/inputPolygon/$cityName/$cityName.sumocfg
 
 echo "***** Finding: traceExporter.py *****"
 traceExporterPATH=$(sudo find / -name traceExporter.py 2>/dev/null)
