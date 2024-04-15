@@ -36,7 +36,7 @@ switch scenario
         vehiclesFile = 'inputMobilitySUMO/Busan-mobility-trace.xml';
         bBoxVehicles = [129.0530,35.1489,129.0690,35.1633];        
         % Buildings in part of Busan, KR (OpenStreetMap .osm)
-        staticFile = 'inputPolygon/Busan.osm';
+        staticFile = 'inputPolygon/Busan/Busan_bbox.osm';
     case 7
         vehiclesFile = 'inputMobilitySUMO/SanFrancisco-mobility-trace.xml';
         bBoxVehicles = [-122.4115,37.7814,-122.3899,37.7965];
