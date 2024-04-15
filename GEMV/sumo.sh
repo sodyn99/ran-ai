@@ -2,7 +2,7 @@
 
 # 변수
 gemvFolder=GEMV2PackageV1.2 # GEMV 폴더 명
-numOfVehicles=20 # 자동차 개수 --- 100개 정도도 되게 많음
+numOfVehicles=10 # 자동차 개수
 
 echo -e "\n\033[32;1mCity List: \033[m\n1. Busan\n2. SanFrancisco"
 echo -e "\n\033[32;1mEnter the number(default SanFrancisco): \033[m"

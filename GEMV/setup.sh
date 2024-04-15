@@ -38,6 +38,7 @@ echo -e "\n\033[32;1m***** Installing: \033[m GEMV \033[32;1m*****\033[m"
 wget -O $gemvFolder.zip https://vehicle2x.net/download/gemv2-package-v1-2/?wpdmdl=381
 unzip $gemvFolder.zip
 rm $gemvFolder.zip
+
 # config 파일 복사
 cp config/Busan.sumo.cfg $gemvFolder/Busan.sumo.cfg
 cp config/SanFrancisco.sumo.cfg $gemvFolder/SanFrancisco.sumo.cfg
