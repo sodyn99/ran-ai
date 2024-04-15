@@ -30,7 +30,7 @@ echo -e "\n\033[32;1mWireshark Version Check \033[m"
 wireshark --version
 
 echo -e "\n\033[32;1m***** Installing: \033[m python3 \033[32;1m*****\033[m"
-sudo apt install python3-pip
+sudo apt install -y python3-pip
 pip install py_interface
 
 # GEMV2 설치 (https://vehicle2x.net/download/)
