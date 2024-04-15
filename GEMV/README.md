@@ -1,5 +1,9 @@
 # GEMV 시뮬레이션
 
+## 차량 대수 수정(option)
+
+`sumo.sh` 파일의 numOfVehicles 수정 (default 10)
+
 ## Configuration
 
 ```bash
@@ -46,7 +50,7 @@ switch scenario
 GEVisualize = 1;
     % IF GEVisualize = 1, then parameters below indicate what is plotted.
     % Plot static objects and vehicle polygons
-    plotPoly = 1; % --- 수정
+    plotPoly = 1; % --- 수정(option)
     % Plot the received power for each of the communications pairs
     plotRxPwr = 1;
     % Plot the number of neighbors per vehicle

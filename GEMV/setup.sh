@@ -17,9 +17,9 @@ sudo apt install -y git
 # wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 # sudo apt install ./google-chrome-stable_current_amd64.deb
 
-echo -e "\n\033[32;1m***** Installing: \033[m osmconvert \033[32;1m*****\033[m"
-sudo apt install -y zlib1g-dev
-sudo apt install -y osmctools && wget -O - http://m.m.i24.cc/osmconvert.c | sudo cc -x c - -lz -O3 -o osmconvert
+# echo -e "\n\033[32;1m***** Installing: \033[m osmconvert \033[32;1m*****\033[m"
+# sudo apt install -y zlib1g-dev
+# sudo apt install -y osmctools && wget -O - http://m.m.i24.cc/osmconvert.c | sudo cc -x c - -lz -O3 -o osmconvert
 
 # wireshark 설치
 echo -e "\n\033[32;1m***** Installing: \033[m Wireshark \033[32;1m*****\033[m"
