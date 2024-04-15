@@ -41,6 +41,7 @@ rm $gemvFolder.zip
 
 # sumo 파일 복사
 cp -r SUMO/SanFrancisco $gemvFolder/inputPolygon
+cp -r SUMO/Busan $gemvFolder/inputPolygon
 
 # config 파일 복사
 # cp SUMO/Busan/Busan.sumocfg $gemvFolder/Busan.sumocfg
