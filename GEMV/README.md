@@ -1,4 +1,4 @@
-# GEMV 시뮬레이션
+# SUMO, GEMV^2
 
 ## 차량 대수 수정(option)
 
@@ -13,7 +13,7 @@ bash ./sumo.sh
 
 ## Matlab 파일 수정
 
-`simSetting.m` 파일을 수정 해야 한다.
+`simSetting.m` 파일 수정
 
 ```matlab
 %% Different "pre-installed" scenarios
