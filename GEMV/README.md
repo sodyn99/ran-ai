@@ -37,10 +37,12 @@ switch scenario
         bBoxVehicles = [129.0530,35.1489,129.0690,35.1633];        
         % Buildings in part of Busan, KR (OpenStreetMap .osm)
         staticFile = 'inputPolygon/Busan/Busan_bbox.osm';
+        V2XNames = {'V2V', 'V2I'};
     case 7
         vehiclesFile = 'inputMobilitySUMO/SanFrancisco-mobility-trace.xml';
         bBoxVehicles = [-122.4115,37.7814,-122.3899,37.7965];
         staticFile = 'inputPolygon/SanFrancisco/SanFrancisco_bbox.osm';
+        V2XNames = {'V2V', 'V2I'};
 ```
 
 ```matlab
