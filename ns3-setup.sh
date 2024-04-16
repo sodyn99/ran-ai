@@ -26,6 +26,9 @@ sudo apt install -y bzip2
 echo -e "\n\033[32;1m***** Installing: \033[m python3 \033[32;1m*****\033[m"
 sudo apt install -y python3
 
+echo -e "\n\033[32;1m***** Installing: \033[m curl \033[32;1m*****\033[m"
+sudo apt install -y curl
+
 echo -e "\n\033[32;1m***** Installing: \033[m cmake \033[32;1m*****\033[m"
 sudo snap install cmake --classic
 
@@ -34,22 +37,29 @@ sudo apt install -y libboost-all-dev # Boost C++ libraries
 sudo apt install -y libprotobuf-dev protobuf-compiler # Protocol buffers
 sudo apt install -y pybind11-dev # pybind11
 
+# echo -e "\n\033[32;1m***** Installing: \033[m Anaconda \033[32;1m*****\033[m"
+# https://docs.anaconda.com/free/anaconda/allpkglists/
+# sudo apt-get install -y libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
+# curl -O https://repo.anaconda.com/archive/Anaconda3-2024.02-1-Linux-x86_64.sh
+
+
 # ns3-mmwave 다운로드
 git clone https://github.com/nyuwireless-unipd/ns3-mmwave.git ns3
 cd ns3
 git checkout $mmwaveVersion
 
-# ns3 빌드
-./ns3 configure --enable-examples --enable-tests
-./ns3 build
-
 # ns3-ai 다운로드
-git clone https://github.com/hust-diangroup/ns3-ai.git contrib/ai
-cd contrib/ai
-git checkout $aiVersion
-cd ../..
+git clone -b $aiVersion https://github.com/hust-diangroup/ns3-ai.git contrib/ns3-ai
+# git clone https://github.com/hust-diangroup/ns3-ai.git contrib/ai
 
-./ns3 build ai
+# ns3 빌드
+# ./ns3 clean
+# ./ns3 configure --enable-examples --enable-tests
+# cd contrib/ns3-ai/py_interface
+# pip3 install . --user
+# cd ../../..
+# ./ns3 build ai
+
 
 cd ..
 
