@@ -93,7 +93,7 @@ cd ns3
     ```
 
     ```bash
-    conda install nu정mpy tensorflow
+    conda install numpy tensorflow
     ```
 
 - python 인터페이스 추가
