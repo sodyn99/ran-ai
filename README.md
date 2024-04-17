@@ -100,15 +100,15 @@ conda install numpy tensorflow
 
 ### ns3-ai 예제
 
-<!-- - [A_PLUS_B](https://github.com/hust-diangroup/ns3-ai/tree/master/examples/a_plus_b) -->
+<!-- - [A_PLUS_B](https://github.com/hust-diangroup/ns3-ai/tree/master/examples/a_plus_b)
 
-    <!-- ```bash
+    ```bash
     cp -r contrib/ns3-ai/example/a_plus_b scratch/
     cd scratch/a_plus_b/
     python3 run.py
-    ``` -->
+    ```
 
-    <!-- ```bash
+    ```bash
     cp -r contrib/ns3-ai/examples/a_plus_b scratch/
     cd scratch/a_plus_b/
     python3 run.py
