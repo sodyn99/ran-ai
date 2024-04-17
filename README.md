@@ -97,6 +97,7 @@ cd ../../..
 환경변수 추가
 
 ```bash
+# export PYTHONPATH=/home/<user_name>/.local/lib/python3.<python_version>/site-packages/ns3_ai-<ns3-ai_version>-py3.<python_version>-linux-x86_64.egg:$ PYTHONPATH
 export PYTHONPATH=/home/host/.local/lib/python3.10/site-packages/ns3_ai-0.0.2-py3.10-linux-x86_64.egg:$ PYTHONPATH
 ```
 
