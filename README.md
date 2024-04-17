@@ -129,16 +129,16 @@ cd ns3
 
 - LTE_CQI
 
-    ```bash
+    <!-- ```bash
     cp -r contrib/ns3-ai/example/lte_cqi scratch/
     ./waf --run scratch/lte_cqi/"lte_cqi"
     # cd scratch/lte_cqi/  # --- By python
     # python3 run_online.py  # --- By python
     # python3 run_online_lstm.py 1 # --- By python(LSTM)
-    ```
+    ``` -->
 
-    <!-- ```bash
+    ```bash
     cp -r contrib/ns3-ai/examples/lte_cqi scratch/
     cd scratch/lte_cqi/
     python3 run_online_lstm.py 1
-    ``` -->
+    ```
