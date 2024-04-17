@@ -94,6 +94,12 @@ pip3 install . --user
 cd ../../..
 ```
 
+환경변수 추가
+
+```bash
+export PYTHONPATH=/home/host/.local/lib/python3.10/site-packages/ns3_ai-0.0.2-py3.10-linux-x86_64.egg:$ PYTHONPATH
+```
+
 ```bash
 conda install numpy tensorflow
 ```
