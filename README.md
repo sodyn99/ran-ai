@@ -53,13 +53,17 @@ Go to [GEMV](/GEMV/README.md)
 
 ## Network Model
 
-- [ns3](https://www.nsnam.org/releases/ns-3-38/documentation/) v3.38
-- [ns3-mmwave](https://github.com/nyuwireless-unipd/ns3-mmwave.git) v7.0
-- [ns3-ai](https://github.com/hust-diangroup/ns3-ai.git) v1.2.0
+- [ns3](https://www.nsnam.org/releases/ns-3-38/documentation/)
+- [ns3-mmwave](https://github.com/nyuwireless-unipd/ns3-mmwave.git)
+- [ns3-ai](https://github.com/hust-diangroup/ns3-ai.git)
 
 ```bash
-bash ./ns3-setup.sh
+bash ./ns3-setup-stable.sh
 ```
+
+<!-- ```bash
+bash ./ns3-setup.sh
+``` -->
 
 ### ns3 빌드
 
@@ -68,10 +72,16 @@ cd ns3
 ```
 
 ```bash
+# ./waf clean
+./waf configure --enable-examples --enable-tests
+./waf
+```
+
+<!-- ```bash
 ./ns3 clean
 ./ns3 configure --enable-examples --enable-tests
 ./ns3 build
-```
+``` -->
 
 ```bash
 conda create -n ns3 python=3.10
@@ -90,18 +100,32 @@ conda install numpy tensorflow
 
 ### ns3-ai 예제
 
-- [A_PLUS_B](https://github.com/hust-diangroup/ns3-ai/tree/master/examples/a_plus_b)
+<!-- - [A_PLUS_B](https://github.com/hust-diangroup/ns3-ai/tree/master/examples/a_plus_b) -->
 
-    ```bash
+    <!-- ```bash
+    cp -r contrib/ns3-ai/example/a_plus_b scratch/
+    cd scratch/a_plus_b/
+    python3 run.py
+    ``` -->
+
+    <!-- ```bash
     cp -r contrib/ns3-ai/examples/a_plus_b scratch/
     cd scratch/a_plus_b/
     python3 run.py
-    ```
+    ``` -->
 
 - LTE_CQI
 
     ```bash
+    cp -r contrib/ns3-ai/example/lte_cqi scratch/
+    ./waf --run scratch/lte_cqi/"lte_cqi"
+    # cd scratch/lte_cqi/  # --- By python
+    # python3 run_online.py  # --- By python
+    # python3 run_online_lstm.py 1 # --- By python(LSTM)
+    ```
+
+    <!-- ```bash
     cp -r contrib/ns3-ai/examples/lte_cqi scratch/
     cd scratch/lte_cqi/
     python3 run_online_lstm.py 1
-    ```
+    ``` -->

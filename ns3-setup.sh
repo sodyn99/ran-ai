@@ -44,9 +44,8 @@ sudo apt install -y pybind11-dev # pybind11
 
 
 # ns3-mmwave 다운로드
-git clone https://github.com/nyuwireless-unipd/ns3-mmwave.git ns3
+git clone -b $mmwaveVersion https://github.com/nyuwireless-unipd/ns3-mmwave.git ns3
 cd ns3
-git checkout $mmwaveVersion
 
 # ns3-ai 다운로드
 git clone -b $aiVersion https://github.com/hust-diangroup/ns3-ai.git contrib/ns3-ai
@@ -55,6 +54,7 @@ git clone -b $aiVersion https://github.com/hust-diangroup/ns3-ai.git contrib/ns3
 # ns3 빌드
 # ./ns3 clean
 # ./ns3 configure --enable-examples --enable-tests
+# ./ns3 build
 # cd contrib/ns3-ai/py_interface
 # pip3 install . --user
 # cd ../../..

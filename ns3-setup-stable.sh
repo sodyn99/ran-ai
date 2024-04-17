@@ -6,8 +6,8 @@
 ###
 
 gemvFolder=GEMV2PackageV1.2 # GEMV 폴더 명
-ns3Version=3.33 # ns3 버전
-mmwaveVersion=4.0 # ns3-mmwave 버전
+ns3Version=3.31 # ns3 버전
+mmwaveVersion=v3.0 # ns3-mmwave 버전
 aiVersion=v1.0.0 # ns3-ai 버전 / v1.2.0: Ubuntu 22.04 이상 필요
 
 echo -e "\n\033[32;1m***** Installing: \033[m Update & Upgrade & essential package \033[32;1m*****\033[m"
@@ -26,6 +26,9 @@ sudo apt install -y bzip2
 echo -e "\n\033[32;1m***** Installing: \033[m python3 \033[32;1m*****\033[m"
 sudo apt install -y python3
 
+echo -e "\n\033[32;1m***** Installing: \033[m curl \033[32;1m*****\033[m"
+sudo apt install -y curl
+
 echo -e "\n\033[32;1m***** Installing: \033[m cmake \033[32;1m*****\033[m"
 sudo snap install cmake --classic
 
@@ -34,29 +37,23 @@ sudo apt install -y libboost-all-dev # Boost C++ libraries
 sudo apt install -y libprotobuf-dev protobuf-compiler # Protocol buffers
 sudo apt install -y pybind11-dev # pybind11
 
+# echo -e "\n\033[32;1m***** Installing: \033[m Anaconda \033[32;1m*****\033[m"
+# https://docs.anaconda.com/free/anaconda/allpkglists/
+# sudo apt-get install -y libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
+# curl -O https://repo.anaconda.com/archive/Anaconda3-2024.02-1-Linux-x86_64.sh
 
-# 오리지널 ns3 다운로드
-# git clone https://gitlab.com/nsnam/ns-3-allinone.git ns3
-# python3 ns3/download.py -n ns-$ns3Version
-# cp -r ns3/ns-$ns3Version .
 
 # ns3-mmwave 다운로드
-git clone https://github.com/nyuwireless-unipd/ns3-mmwave.git ns3
+git clone -b $mmwaveVersion https://github.com/nyuwireless-unipd/ns3-mmwave.git ns3
 cd ns3
-git checkout $mmwaveVersion
-
-# ns3 빌드
-./waf configure --enable-examples --enable-tests
-./waf build
 
 # ns3-ai 다운로드
-cd src
-git clone https://github.com/hust-diangroup/ns3-ai.git
-cd ns3-ai
-git checkout v1.0.0
-cd ../..
+# git clone -b $aiVersion https://github.com/hust-diangroup/ns3-ai.git contrib/ns3-ai
+rsync -a ../ns3-ai contrib/
 
-./waf
+# ns3 빌드
+# ./waf configure --enable-examples --enable-tests
+# ./waf
 
 cd ..
 
