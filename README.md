@@ -71,39 +71,45 @@ bash ./ns3-setup.sh
 cd ns3
 ```
 
-```bash
-# ./waf clean
-./waf configure --enable-examples --enable-tests
-./waf
-```
+- ns3 configure & build
 
-<!-- ```bash
-./ns3 clean
-./ns3 configure --enable-examples --enable-tests
-./ns3 build
-``` -->
+    ```bash
+    # ./waf clean
+    ./waf configure --enable-examples --enable-tests
+    ./waf
+    ```
 
-```bash
-conda create -n ns3 python=3.10
-conda activate ns3
-```
+    <!-- ```bash
+    ./ns3 clean
+    ./ns3 configure --enable-examples --enable-tests
+    ./ns3 build
+    ``` -->
 
-```bash
-cd contrib/ns3-ai/py_interface
-pip3 install . --user
-cd ../../..
-```
+- conda 환경 설정
 
-환경변수 추가
+    ```bash
+    conda create -n ns3 python=3.10
+    conda activate ns3
+    ```
 
-```bash
-# export PYTHONPATH=/home/<user_name>/.local/lib/python3.<python_version>/site-packages/ns3_ai-<ns3-ai_version>-py3.<python_version>-linux-x86_64.egg:$ PYTHONPATH
-export PYTHONPATH=/home/host/.local/lib/python3.10/site-packages/ns3_ai-0.0.2-py3.10-linux-x86_64.egg:$ PYTHONPATH
-```
+    ```bash
+    conda install nu정mpy tensorflow
+    ```
 
-```bash
-conda install numpy tensorflow
-```
+- python 인터페이스 추가
+
+    ```bash
+    cd contrib/ns3-ai/py_interface
+    pip3 install . --user
+    cd ../../..
+    ```
+
+- 환경변수 추가
+
+    ```bash
+    # export PYTHONPATH=/home/<user_name>/.local/lib/python3.<python_version>/site-packages/ns3_ai-<ns3-ai_version>-py3.<python_version>-linux-x86_64.egg:$ PYTHONPATH
+    export PYTHONPATH=/home/host/.local/lib/python3.10/site-packages/ns3_ai-0.0.2-py3.10-linux-x86_64.egg:$ PYTHONPATH
+    ```
 
 ### ns3-ai 예제
 
