@@ -93,7 +93,11 @@ cd ns3
     ```
 
     ```bash
-    conda install numpy tensorflow
+    conda install numpy tensorflow pytorch pandas seaborn matplotlib=3,6 psutil ipywidgets conda-forge::tikzplotlib
+    ```
+
+    ```bash
+    pip install pickle5 sem
     ```
 
 - python 인터페이스 추가
